@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "PDF Downloader",
+    "slug": "pdf-downloader",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1a73e8"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pdfdownloader.app",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Allow PDF Downloader to access your photos to convert them to high-resolution PDFs.",
+        "NSCameraUsageDescription": "Allow PDF Downloader to use your camera to capture screens and convert to high-resolution PDFs.",
+        "NSPhotoLibraryAddUsageDescription": "Allow PDF Downloader to save PDFs to your photo library."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1a73e8"
+      },
+      "package": "com.pdfdownloader.app",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "CAMERA"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow PDF Downloader to access your photos to convert them to high-resolution PDFs.",
+          "cameraPermission": "Allow PDF Downloader to use your camera to capture and convert to high-resolution PDFs."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow PDF Downloader to access your photos.",
+          "savePhotosPermission": "Allow PDF Downloader to save PDFs to your photos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ]
+    ]
+  }
+}
