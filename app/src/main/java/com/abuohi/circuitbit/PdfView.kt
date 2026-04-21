@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.abuohi.circuitbit.utils.FileDownloadHelper
 import com.airbnb.lottie.LottieAnimationView
@@ -82,7 +83,7 @@ class PdfView : AppCompatActivity() {
     private fun setupDownloadButton() {
         fabDownload.setOnClickListener {
             if (fileUrl.isEmpty()) {
-                android.widget.Toast.makeText(this, "No file to download", android.widget.Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "No file to download", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             FileDownloadHelper.download(

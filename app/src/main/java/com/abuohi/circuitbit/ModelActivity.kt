@@ -1,7 +1,11 @@
 package com.abuohi.circuitbit
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -118,14 +122,14 @@ class SolutionAdapter(
     private val onDownloadClick: (SolutionItem) -> Unit
 ) : RecyclerView.Adapter<SolutionAdapter.ViewHolder>() {
 
-    inner class ViewHolder(view: android.view.View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvModelName: TextView = view.findViewById(R.id.tv_model_name)
         val tvSolutionCount: TextView = view.findViewById(R.id.tv_solution_count)
-        val btnDownload: android.widget.ImageButton = view.findViewById(R.id.btn_download)
+        val btnDownload: ImageButton = view.findViewById(R.id.btn_download)
     }
 
-    override fun onCreateViewHolder(parent: android.view.ViewGroup, viewType: Int): ViewHolder {
-        val view = android.view.LayoutInflater.from(parent.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_model, parent, false)
         return ViewHolder(view)
     }
@@ -133,6 +137,7 @@ class SolutionAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.tvModelName.text = item.name
+        // tv_solution_count shows the file name (the solution/schematic file identifier)
         holder.tvSolutionCount.text = item.fileName
         holder.btnDownload.setOnClickListener { onDownloadClick(item) }
     }
