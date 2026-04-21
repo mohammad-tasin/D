@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/tophad"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textColor="#ff3f51b5"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CircuitBit Schematics And Hardware Solutions"
+            android:layout_marginVertical="10dp" />
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:id="@+id/brandshow"
+                android:background="#ff4caf50"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
+                android:paddingHorizontal="10dp" />
+            <TextView
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:id="@+id/solutionshow"
+                android:background="#ff8bc34a"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:paddingHorizontal="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+        android:id="@+id/image_view"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:layout_below="@id/tophad"
+        android:contentDescription="Zoomable Image"
+        android:layout_marginHorizontal="10dp" />
+
+    <RelativeLayout
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp">
+        <TextView
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:textColor="#6bffffff"
+            android:id="@+id/watermark"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Circuit Bit" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="15dp">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_above="@id/pdf_progress_bar"
+            android:layout_marginHorizontal="30dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading"
+            app:lottie_speed="1.0" />
+        <ProgressBar
+            android:id="@+id/pdf_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_centerInParent="true"
+            style="@android:style/Widget.ProgressBar.Horizontal" />
+        <TextView
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            android:textColor="#ff1efa47"
+            android:id="@+id/pdfloadtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:textColor="#ffff0000"
+        android:gravity="center"
+        android:id="@+id/error_text_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <Button
+        android:id="@+id/retry_button"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retry"
+        android:layout_below="@id/error_text_view"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Download FAB pinned to bottom-end corner -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="24dp"
+        android:contentDescription="Download file"
+        android:src="@android:drawable/stat_sys_download"
+        app:backgroundTint="#ff1565c0"
+        app:tint="@color/white" />
+
+</RelativeLayout>

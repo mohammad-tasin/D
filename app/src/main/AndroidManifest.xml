@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.abuohi.circuitbit">
+
+    <!-- ================================================================
+         Internet – required to fetch files from Firebase Storage
+         ================================================================ -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ================================================================
+         Storage – required by DownloadManager to save files
+         WRITE_EXTERNAL_STORAGE is only needed on Android 9 (API 28) and
+         below; on Android 10+ the Downloads folder is always writable.
+         ================================================================ -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CircuitBit"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".LoginActivity"    android:exported="false" />
+        <activity android:name=".SignupActivity"   android:exported="false" />
+        <activity android:name=".TermsActivity"    android:exported="false" />
+        <activity android:name=".MainActivity"     android:exported="false" />
+        <activity android:name=".ModelActivity"    android:exported="false" />
+
+        <!-- PdfView now receives fileUrl and fileName extras for the Download FAB -->
+        <activity android:name=".PdfView"          android:exported="false" />
+
+        <activity android:name=".ImageViewActivity"  android:exported="false" />
+        <activity android:name=".FullImageActivity"  android:exported="false" />
+        <activity android:name=".IcFinder"           android:exported="false" />
+        <activity android:name=".UniBatteryActivity" android:exported="false" />
+        <activity android:name=".UniDisplayActivity" android:exported="false" />
+
+        <!-- ImagePicker (third-party) -->
+        <activity
+            android:name="com.github.dhaval2404.imagepicker.ImagePickerActivity"
+            android:screenOrientation="unspecified"
+            android:theme="@style/Theme.Transparent.ImagePicker" />
+
+        <!-- uCrop (third-party) -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- FileProvider used by ImagePicker -->
+        <provider
+            android:name="com.github.dhaval2404.imagepicker.ImagePickerFileProvider"
+            android:authorities="com.abuohi.circuitbit.imagepicker.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/image_picker_provider_paths" />
+        </provider>
+
+    </application>
+</manifest>
